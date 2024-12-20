@@ -1,0 +1,68 @@
+<div class="col-3 c">
+  <h1>Reactive Form</h1>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <form class="row g-3" [formGroup]="studentForm" >
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">First name</label>
+          <input type="text" formControlName="firstName" class="form-control">
+          <div class="text-danger">
+            @if (studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['required'])
+            {
+              <span>*required</span>
+            }
+            @else if (studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['minLength']) 
+            {
+              <span>*length must be greater then 3</span>
+            }
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Last name</label>
+          <input type="text" formControlName="lastName" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">Username</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">#</span>
+            <input type="text" formControlName="userName" class="form-control">
+            @if (studentForm.controls['userName'].touched && studentForm.controls['userName'].errors?.['email'])
+            {
+              <span class="text-danger">*Email</span>
+            }
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">City</label>
+          <input type="text" formControlName="city" class="form-control">
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom04" class="form-label">State</label>
+          <select class="form-select">
+            <option selected disabled value="">Choose...</option>
+            <option>Punjab</option>
+            <option>Sindh</option>
+            <option>KPK</option>
+          </select>
+         
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">Zip</label>
+          <input type="text" formControlName="zipCode" class="form-control" >
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" formControlName="isAccept" type="checkbox" value="" >
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" [disabled]="studentForm.invalid" (click)="saveOn()" type="submit">Submit form</button>
+        </div>
+      </form>
+  </div>
+</div>

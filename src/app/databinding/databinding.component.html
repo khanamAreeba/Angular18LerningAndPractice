@@ -1,0 +1,46 @@
+<p>databinding works!</p>
+<div class="row">
+  <div class="col-3">one way from .ts to .html</div>
+  <div class="col-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-2 bg-info">
+    interpolation
+    <h2>{{ datainput }}</h2>
+    <div>{{ rollNumber }}</div>
+    <div>{{Number}}</div>
+   <input type="{{ input_type }}" />
+    <input type="text" value="{{ datainput }}" />
+  </div>
+
+  <div class="col-2 apunKaColor">
+    property bindng
+    <div class="{{myClassName }}"> accessing through .ts</div>
+  </div>
+  <div class="col-2 abc">
+
+    <button class ="btn apunKaColor " (click)="showAlert('Lets start angular')">Click here!!!</button>  
+    <button class="btn c1"(click)="changedatainput()">click to change the Name</button>
+  </div>
+  <div class="col-2 c1">
+    <input type ="text" [(ngModel)]="datainput"/> 
+      <select [(ngModel)]="city">
+        <option value="City">city</option>
+        <option value="Lahore">Lahore</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Muree">Muree</option>
+  
+      </select>
+    
+      <select [(ngModel)]="field">
+        <option value="field">field</option>
+        <option value="BSCS">BSCS</option>
+        <option value="BSSE">BSSE</option>
+        <option value="BSDB">BSDB</option>
+      </select> 
+        
+  
+
+  </div>
+</div>

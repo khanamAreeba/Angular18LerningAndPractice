@@ -1,0 +1,80 @@
+<div class="col-2 s">
+  <h1>Attribute Directive</h1>
+  <p style="color: lightgray">*ngClass,ngStyle</p>
+</div>
+
+<div class="row pt-3">
+  <div class="col-3">
+    <div class="p-3 text-center"[ngClass]="div1color">
+      <h2>Div-1</h2>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="bg-success p-3 text-center" [ngClass]="isActive ==true ? 'bg-success':'bg-info'">
+      <h2>Div-2</h2>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class=" p-3 text-center"[ngClass]="Num1==Num2 ? 's1':'s2'">
+      <h2>Div-3</h2>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class=" p-3 text-center"[ngClass]="isChecked ? 'bg-danger':'bg-success'">
+      <h2>Dive-4</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row p-3">
+    <div class="col-3 p3 text-center">
+        <button class="btn bg-danger" (click)="redcolor()">Red</button>
+        <button class="btn bg-primary mx-2" (click)="bluecolor()">Blue</button>
+
+    </div>
+    <div class="col-3 p-3 text-center">
+        <button class="btn bg-success"(click)="togglediv2()">Toggle</button>
+    </div>
+    <div class="col-3">
+        <div style="display: flex; text-align: center;width: 20%;">
+        <input type="text" [(ngModel)]="Num1" placeholder="Num1" class="width-50"/>
+        <input type="text" [(ngModel)]="Num2"placeholder="Num2" class="width-50"/>
+        </div>
+    </div>
+    <div class="col-3 text-center">
+        <input type="checkbox" [(ngModel)]="isChecked"/>
+    </div>
+    <div class="col-5">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Section</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let stud of studentData">
+            <tr>
+              <td [ngStyle]="{'background-color':'pink'}">{{stud.studId}}</td>
+              <td [ngStyle]="{'background-color':'violet'}">{{stud.studName}}</td>
+              <td [ngStyle]="{'background-color':'hotpink'}">{{stud.section}}</td>
+              <td [ngStyle]="{'background-color':'deeppink'}">
+                <div class="progress">
+                    <div class="progress-bar" [ngStyle]="{'width':stud.totalmark +'%'}">
+                        
+                        {{stud.totalmark}}
+                    </div>
+                  </div>
+              </td>
+              <td [ngStyle]="{'background-color': stud.isActive ? 'plum':'purple'}">
+                <span>{{stud.isActive ? 'Active':'De-Active'}}</span>
+                
+              </td>
+    
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>

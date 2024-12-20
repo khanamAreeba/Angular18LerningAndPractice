@@ -1,0 +1,112 @@
+<div class="s1 p-3 w-100 h-100">
+  <div class="col-3">
+    <h1>Template</h1>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <form class="row g-3" #form="ngForm">
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">First name</label>
+          <input
+            type="text"
+            name="firstname"
+            #fname="ngModel"
+            [(ngModel)]="student.firstname"
+            class="form-control"
+            required
+            minlength="3"
+          />
+          <div class="text-danger">
+            @if( fname.touched && fname.errors?.['required']) {
+            <span>*required</span>
+            } @else if (fname.touched &&fname.errors?.['minlength']) {
+            <span>length must be equal to 3 or greater than</span>
+            }
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Last name</label>
+          <input
+            type="text"
+            name="lastname"
+            [(ngModel)]="student.lastname"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Phone#</label>
+          <input
+            type="text" name="phoneNo"  [(ngModel)]="student.phoneNo" class="form-control"  pattern="^(03|05|01|02|04|06|07|08|09)\d{8}$" (keypress)="allowOnlyNumbers($event)" 
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label"
+            >Username</label
+          >
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">#</span>
+            <input
+              type="text"
+              name="username"
+              [(ngModel)]="student.username"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">City</label>
+          <input
+            type="text"
+            name="city"
+            [(ngModel)]="student.city"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom04" class="form-label">State</label>
+          <select class="form-select">
+            <option selected disabled value="">Choose...</option>
+            <option>Punjab</option>
+            <option>Sindh</option>
+            <option>KPK</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">Zip</label>
+          <input
+            type="text"
+            name="zipcode"
+            [(ngModel)]="student.zipcode"
+            class="form-control"
+          />
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              name="acceptTerm"
+              [(ngModel)]="student.acceptTerm"
+              type="checkbox"
+            />
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button
+            class="btn btn-primary"
+            [disabled]="form.invalid"
+            type="submit"
+            (click)="submitNow()"
+          >
+            Submit form
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-3">
+      {{ fromvalue | json }}
+    </div>
+  </div>
+</div>

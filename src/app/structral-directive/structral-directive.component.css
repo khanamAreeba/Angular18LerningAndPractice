@@ -1,0 +1,28 @@
+.s{
+    background-color: plum;
+}
+.s1{
+    background-color: gray;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 40%;
+}
+.s2{
+    background-color: rgb(217, 48, 152);
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.s3{
+    background-color: pink;
+    text-align: center;
+    border: 1px solid rgb(230, 90, 113)
+    ;
+}
+
+.s4{
+    background-color: greenyellow;
+    border: 1px solid green;
+}

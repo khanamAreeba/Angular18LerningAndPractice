@@ -1,0 +1,98 @@
+<div class="col-2 s1">
+  <h1>Structural Directive</h1>
+  <p style="color: lightgray">*ngif,ngfor</p>
+</div>
+
+<div class="row pt-3 ">
+  <div  class="col-3  ">
+    <div *ngIf ="isDiv1Visible" class="s p-3 text-center">
+      <h2>Div-1</h2>
+    </div>
+  </div>
+  <div class="col-3 ">
+    <div *ngIf="div2" class="bg-success p-3 text-center">
+      <h2>Div-2</h2>
+    </div>
+     </div>
+  <div class="col-3 ">
+    <div *ngIf="(Num1==Num2)"class="bg-secondary p-3 text-center">
+      <h2>Div-3</h2>
+    </div>
+  </div>
+  <div class="col-3 ">
+    <div *ngIf="state=='Muskhpuri' ||IsActive==true " class="bg-info p-3 text-center">
+      <h2>Div-4</h2>
+    </div>
+  </div>
+
+</div>
+
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn s2" (click)="hideDiv1()">Hide</button>
+        <button class="btn s3" (click)="showDiv1()">Show</button>
+    </div>
+    <div class="col-3  text-center">
+      <button class="btn s4 "(click)="toogle()">Toogle</button>
+    </div>
+    <div class="col-3">
+      <div style="display: flex; align-items: center;">
+      <input type="text" [(ngModel)]="Num1" placeholder="Num-1"/>
+      <input type="text" [(ngModel)]="Num2" placeholder="Num-2"/>
+    </div>
+    </div>
+    <div class="col-3 text-center ">
+      <div style="display: flex; text-align: center;">
+        <input [(ngModel)]="IsActive"type="checkbox" />
+        <select [(ngModel)]="state">
+          <option value="">select state</option>
+          <option value="Lahore">Lahore</option>
+          <option value="Muskhpuri">Muskhpuri</option>
+          <option value="Muree">Muree</option>
+  
+        </select>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <ul>
+      <li *ngFor="let name of Name">{{name}}</li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <div *ngFor="let name of Name">{{name}}</div>
+  </div>
+  <div class="col-3">
+    <select>
+      <option *ngFor="let name of studentData" value="name.studId">{{name.studName}}</option>
+      
+    </select>
+  </div>
+  <div class="col-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Section</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let stud of studentData">
+        <tr>
+          <td>{{stud.studId}}</td>
+          <td>{{stud.studName}}</td>
+          <td>{{stud.section}}</td>
+          <td>
+            <span *ngIf="stud.isActive">Active</span>
+            <span *ngIf="stud.isActive==false">De-Active</span>
+            <!-- {{stud.isActive}} -->
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

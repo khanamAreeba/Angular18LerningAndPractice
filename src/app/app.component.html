@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Angular 18</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mynavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="Emp-list">Employee_list</a>
+        </li>
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="Data-binding">DataBinding</a>
+        </li>
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="Structural-Dir">Structural-Directive</a>
+        </li>
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="Attribute-Dir">AttributeDirective</a>
+        </li>
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="Pipes">pipes</a>
+        </li>
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="Forms/template">Template</a>
+        </li>
+        <li class="nav-item" style="margin-top: -12px">
+          <a class="nav-link" routerLink="reactive">reactive</a>
+        </li>
+
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            id="dropdownMenuButton1"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            APIs
+          </a>
+          <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+            <li class="nav-items mx-1">
+              <a class="nav-link btn btn-dark" routerLink="/GET">GET-API</a>
+            </li>
+            <li><a class="nav-link  btn btn-dark" routerLink="/POST">POST-API</a></li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,19 @@
+<app-alert-box [alertType]="'success'", [message]="'Welcome to get API'"></app-alert-box>
+<!-- <div class="alert alert-primary">
+    <strong>Welcome to GET-API</strong> 
+</div> -->
+<div class="col-3 c">
+    <h1>GET_API</h1>
+</div>
+<div class="row">
+    <div class="col-2">
+        <button class="btn btn-success" (click)="getAllUser()">Get user</button>
+    </div>
+    <div class="col-3">
+        <select class="from-select">
+            @for (item of userList; track $index) {
+                <option>{{item.name}}</option>
+            }
+        </select>
+    </div>
+</div>

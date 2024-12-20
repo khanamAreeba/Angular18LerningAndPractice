@@ -1,0 +1,26 @@
+<p class="primary">employeelist works!</p>
+<div class="col-3y text-center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">ID</th>
+        <th scope="col">Age</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employee" [ngClass]="emp.isActive ? 'bg-success': 'bg-danger'">
+        <td>{{ emp.Name }}</td>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.age }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>
+          <span>{{ emp.isActive ? "Active" : "De-Active" }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
